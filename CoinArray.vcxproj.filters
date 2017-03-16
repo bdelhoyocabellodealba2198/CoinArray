@@ -23,6 +23,9 @@
     <ClInclude Include="Header.hh">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Input.hh">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Map.cc">
