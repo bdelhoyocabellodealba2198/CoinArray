@@ -4,27 +4,26 @@
 class Map
 {
 public:
-	//CONSTRUCTORS.
-	Map();																	   //DEFAULT CONSTRUCTOR of the map.
-	Map(int x);																   //CONSTRUCTOR of the map for "EASY", 
-																			   //"MEDIUM" or "HARD" mode.
 
-	//DESTRUCTOR.
+	Map(int difficulty);
+
 	~Map();
 
-	//METHODS.
-	void drawMap(int difficulty, int x);									   //METHOD to assign a size to the map.
+	void newCellContent(int rowPosition, int columnPosition, char newContent);
 
-	//MODIFIER METHODS.
-	void newCellContent(int rowPosition, int columnPosition, char newContent, int x); //METHOD that modifies the content of a cell.
+	char getContent(int rowPosition, int columnPosition);
+
+	void drawMap();
+
+	int getMapSize();
+
+	int getMatrixSize();
 
 private:
-	//STATIC CONSTANTS.
-	static const char map_coins{ '$' };
-	static const char map_empty_cell{ '.' };
 
-	//ATTRIBUTES.
-	char *map_cells;
-	int map_cells_quantity;
+	int map_cells_amount;
+
+	int matrix_size;
+
+	char **map_matrix;
 };
-

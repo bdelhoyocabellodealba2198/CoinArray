@@ -28,11 +28,12 @@ int difficultyChoice()
 
 int main()
 {
-	int playerChoice;
-	playerChoice = difficultyChoice();
+	srand(time(nullptr));
+	int difficulty;
+	difficulty = difficultyChoice();
 	
-	Map A(playerChoice);
-	A.drawMap(playerChoice, playerChoice);
+	Map A(difficulty);
+	A.drawMap();
 
 	return 0;
 }

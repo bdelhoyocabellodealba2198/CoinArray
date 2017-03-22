@@ -4,7 +4,19 @@
 class Player
 {
 public:
-	Player();
-	~Player();
-};
+	Player(class Map&Map);
 
+	~Player();
+
+	void addPoints(class Map&Map, Input::Key pointKey);
+
+	int getPoints();
+
+	void updatePosition(class Map&Map, Input::Key movementKey);
+
+private:
+	int positionX;
+	int positionY;
+	int playerPoints;
+	char playerChar = '@';
+};

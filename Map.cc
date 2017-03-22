@@ -1,23 +1,24 @@
 #include "Header.hh"
 
-Map::Map() :
-	map_cells {new char[5, 10]},
-	map_cells_quantity{30}
-{}
-
-Map::Map(int x) 
+Map::Map(int difficulty) 
 {
-	map_cells = new char [5*x, 5*x*2];
-	map_cells_quantity = 5 * x + 5 * x * 2;
+	matrix_size = rand() % (5 * difficulty * 2) + (5 * difficulty);
+	map_matrix = new char*[matrix_size];
+	map_cells_amount = matrix_size*matrix_size;
 }
 
-void Map::drawMap(int difficulty, int x)
+Map::~Map()
 {
-	for (int i = 0, j = 0; j < 5*x*2; i++)
+	delete[]map_matrix;
+}
+
+void Map::drawMap()
+{
+	for (int i = 0, j = 0; j < matrix_size; i++)
 	{
-			if (i < 5 * x)
+			if (i < matrix_size)
 			{
-				std::cout << map_empty_cell << " ";
+				std::cout << " . ";
 			}
 			else
 			{
@@ -26,77 +27,31 @@ void Map::drawMap(int difficulty, int x)
 				j++;
 			}
 	}
+
+	std::cout << std::endl;
+	std::cout << matrix_size;
 }
 
-void Map::newCellContent(int rowPosition, int columnPosition, char newContent, int x) 
+void Map::newCellContent(int rowPosition, int columnPosition, char newContent)
 {
-	char *newMapCells = new char[5 * x, 5 * x * 2];
-	int counterJ;
-	int counterI;
-
-	for (int j = 0, i = 0; j < 5 * x || i < 5 * x * 2; i++)
-	{
-		if (j == columnPosition && i == rowPosition)
-		{
-			newMapCells[j, i] = newContent;
-
-			if (j < 5 * x)
-			{
-				j++;
-			}
-			else
-			{
-				std::cout << std::endl;
-				i++;
-				j = 0;
-			}
-		}
-
-		if (j < 5 * x)
-		{
-			newMapCells[j, i] = map_cells[j, i];
-			j++;
-		}
-		else
-		{
-			std::cout << std::endl;
-			newMapCells[j, i] = map_cells[j, i];
-			i++;
-			j = 0;
-		}
-		/*counterJ = j;
-		counterI = i;*/
-	}
-	delete[] map_cells;
-
-/*	while (counterJ > 0 || counterI >> 0) PREGUNTAR A TONA si hay alguna manera de hacer un recorrido hacia arriba.
-	{
-		if (counterJ > 0) 
-		{
-
-		}
-	}
-*/
-	for (int j = 0, i = 0; j < 5 * x || i < 5 * x * 2; i++) 
-	{
-		if (j < 5 * x)
-		{
-			map_cells[j, i] = newMapCells[j, i];
-			j++;
-		}
-		else
-		{
-			std::cout << std::endl;
-			map_cells[j, i] = newMapCells[j, i];
-			i++;
-			j = 0;
-		}
-	}
-	//PREGUNTAR A TONA: ya no necesito newMapCells[ , ], ¿Puedo destruir este char array de alguna
-	//manera? O simplemente uso delete[] newMapCells (que en teoría sólo borra el contenido de la memoria).
+	map_matrix[rowPosition][columnPosition] = newContent;
 }
 
-Map::~Map()
+char Map::getContent(int rowPosition, int columnPosition) 
 {
-	delete[]map_cells;
+	char content;
+
+	content = map_matrix[rowPosition][columnPosition];
+
+	return content;
+}
+
+int Map::getMapSize() 
+{
+	return map_cells_amount;
+}
+
+int Map::getMatrixSize() 
+{
+	return matrix_size;
 }
