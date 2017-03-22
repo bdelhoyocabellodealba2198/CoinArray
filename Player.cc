@@ -4,8 +4,8 @@ Player::Player(class Map&Map)
 {
 	playerPoints = 0;
 	do {
-		positionX = rand() % Map.getMatrixSize;
-		positionY = rand() % Map.getMatrixSize;
+		positionX = rand() % Map.getMatrixSize();
+		positionY = rand() % Map.getMatrixSize();
 		
 		if (Map.getContent(positionX, positionY) == '.')
 		{
@@ -21,13 +21,13 @@ void Player::addPoints(class Map&Map, Input::Key pointKey)
 {
 	switch(pointKey)
 	{
-	case Input::Key::D: if (Map.getContent[positionX + 1][positionY] == '$') playerPoints++;
+	case Input::Key::D: if (Map.getContent(positionX + 1,positionY) == '$') playerPoints++;
 		break;
-	case Input::Key::A: if (Map.getContent[positionX - 1][positionY] == '$') playerPoints++;
+	case Input::Key::A: if (Map.getContent(positionX - 1,positionY) == '$') playerPoints++;
 		break;
-	case Input::Key::W: if (Map.getContent[positionX][positionY - 1] == '$') playerPoints++;
+	case Input::Key::W: if (Map.getContent(positionX,positionY - 1) == '$') playerPoints++;
 		break;
-	case Input::Key::S: if (Map.getContent[positionX][positionY + 1] == '$') playerPoints++;
+	case Input::Key::S: if (Map.getContent(positionX,positionY + 1) == '$') playerPoints++;
 		break;
 	}
 }
