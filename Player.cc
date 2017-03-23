@@ -1,8 +1,9 @@
 #include "Header.hh"
-
-/*Player::Player( Map&Mapa, CoinManager&CoinManager)::Mapa{ Mapa }
+/*
+Player::Player(Map&M):Mapa{ M }
 {
 	char empty = '.';
+
 	playerPoints = 0;
 	do {
 		positionX = rand() % Mapa.getMatrixSize();
@@ -18,7 +19,7 @@
 Player::~Player()
 {}
 
-void Player::addPoints(Map&Mapa, Input::Key pointKey)
+void Player::addPoints(Input::Key pointKey)
 {
 	switch(pointKey)
 	{
@@ -33,7 +34,7 @@ void Player::addPoints(Map&Mapa, Input::Key pointKey)
 	}
 }
 
-void Player::updatePosition(Map&Mapa,Input::Key movementKey)
+void Player::updatePosition(Input::Key movementKey)
 {
 	char emptyCell = ' . ';
 	Mapa.newCellContent(positionX, positionY, emptyCell);

@@ -41,8 +41,8 @@ int main()
 	//Player player(A,MyKey);//Objeto sobrecargado de la clase player
 	//player.addPoints(A);
 
-	CoinManager Coins(A);//Objeto3 sobregado de la clase Coin
-	Coins.inicializeCoins(difficulty);
+	//CoinManager Coins(A);//Objeto3 sobregado de la clase Coin
+	//Coins.inicializeCoins(difficulty);
 
 	return 0;
 }

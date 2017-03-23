@@ -1,6 +1,6 @@
 #pragma once //Preguntar a Tona para qué es #pragma once.
 #include "Header.hh"
-
+/*
 class CoinManager
 {
 public:
@@ -18,4 +18,4 @@ private:
 	int visibleCoins;
 	int x;     
 	int y;
-};
+};*/

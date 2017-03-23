@@ -1,5 +1,5 @@
 #include "Header.hh" 
-
+/*
 CoinManager::CoinManager(Map &M):Mapa{M}//Constructor del mapa
 {
 		
@@ -23,13 +23,13 @@ void CoinManager::inicializeCoins( int difficulty) { //Inicializamos el valor de
 	char empty{ '.' };																 //a un 13%,que serán monedas visibles.		
 	char coin{ '$' };
 	
-	for (int i = 0; i < visibleCoins && M.getContent(x, y) != empty && M.getContent(x, y) != coin; i++) {
+	for (int i = 0; i < visibleCoins && Mapa.getContent(x, y) != empty && Mapa.getContent(x, y) != coin; i++) {
 
-		x = rand() % M.getMatrixSize();
-		y = rand() % M.getMatrixSize();
+		x = rand() % Mapa.getMatrixSize();
+		y = rand() % Mapa.getMatrixSize();
 
-		if (M.getContent(x,y)!=empty && M.getContent(x,y)!=coin) {
-			M.newCellContent(x,y,coin);
+		if (Mapa.getContent(x,y)!=empty && Mapa.getContent(x,y)!=coin) {
+			Mapa.newCellContent(x,y,coin);
 		}
 	}
 }
@@ -45,15 +45,15 @@ void CoinManager::refillCoins() {
 		char empty{ '.' };																 //a un 13%,que serán monedas visibles.		
 		char coin{ '$' };
 
-		for (int i = 0; i < visibleCoins && M.getContent(x, y) != empty && M.getContent(x, y) != coin; i++) {
+		for (int i = 0; i < visibleCoins && Mapa.getContent(x, y) != empty && Mapa.getContent(x, y) != coin; i++) {
 
-			x = rand() % M.getMatrixSize();
-			y = rand() % M.getMatrixSize();
+			x = rand() % Mapa.getMatrixSize();
+			y = rand() % Mapa.getMatrixSize();
 
-			if (M.getContent(x, y) != empty && M.getContent(x, y) != coin) {
-				M.newCellContent(x, y, coin);
+			if (Mapa.getContent(x, y) != empty && Mapa.getContent(x, y) != coin) {
+				Mapa.newCellContent(x, y, coin);
 			}
 		}
 	}
-}
+}*/
 
