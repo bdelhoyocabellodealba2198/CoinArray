@@ -1,11 +1,10 @@
 #include "Header.hh" 
 
-CoinManager::CoinManager(Map &Mapa)
+CoinManager::CoinManager(Map &M):Mapa{M}//Constructor del mapa
 {
+		
 	totalCoins = 0;
 	visibleCoins = 0;
-	x;
-	y;
 	
 }
 
@@ -24,13 +23,13 @@ void CoinManager::inicializeCoins( int difficulty) { //Inicializamos el valor de
 	char empty{ '.' };																 //a un 13%,que serán monedas visibles.		
 	char coin{ '$' };
 	
-	for (int i = 0; i < visibleCoins && Mapa.getContent(x, y) != empty && Mapa.getContent(x, y) != coin; i++) {
+	for (int i = 0; i < visibleCoins && M.getContent(x, y) != empty && M.getContent(x, y) != coin; i++) {
 
-		x = rand() % Mapa.getMatrixSize();
-		y = rand() % Mapa.getMatrixSize();
+		x = rand() % M.getMatrixSize();
+		y = rand() % M.getMatrixSize();
 
-		if (Mapa.getContent(x,y)!=empty && Mapa.getContent(x,y)!=coin) {
-			Mapa.newCellContent(x,y,coin);
+		if (M.getContent(x,y)!=empty && M.getContent(x,y)!=coin) {
+			M.newCellContent(x,y,coin);
 		}
 	}
 }
@@ -42,8 +41,19 @@ void CoinManager::removeCoin() { //Cada vez que el jugador se encuentra esta mon
 }
 
 void CoinManager::refillCoins() {
-	for (int i = 0; i<visibleCoins&&) {
-		Map.inicialize();
+	if (visibleCoins==0) {
+		char empty{ '.' };																 //a un 13%,que serán monedas visibles.		
+		char coin{ '$' };
+
+		for (int i = 0; i < visibleCoins && M.getContent(x, y) != empty && M.getContent(x, y) != coin; i++) {
+
+			x = rand() % M.getMatrixSize();
+			y = rand() % M.getMatrixSize();
+
+			if (M.getContent(x, y) != empty && M.getContent(x, y) != coin) {
+				M.newCellContent(x, y, coin);
+			}
+		}
 	}
 }
 

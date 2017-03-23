@@ -39,8 +39,8 @@ void Map::newCellContent(int rowPosition, int columnPosition, char newContent)
 
 char Map::getContent(int rowPosition, int columnPosition)//Devuelve el valor interno de la celda a la que 
 														//queremos acceder. 
-
-
+	
+{
 	char content;
     content= map_matrix[rowPosition][columnPosition];
 

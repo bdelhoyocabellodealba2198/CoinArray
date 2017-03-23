@@ -13,10 +13,9 @@ public:
 	void refillCoins(void);//Método que rellena la array una vez el jugador ha conseguido todas 
 						//monedas visibles en el mapa. 
 private:
-	Map map;
+	Map Mapa; //referencia de tipo Map
 	int totalCoins; //Cantidad de monedas totales del 
 	int visibleCoins;
 	int x;     
 	int y;
-	char coinChar = '$';
 };

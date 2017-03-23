@@ -1,7 +1,7 @@
 #pragma once //Preguntar a Tona para qué es #pragma once.
 #include "Header.hh"
-
-/*class Player
+/*
+class Player
 {
 public:
 	Player(class Map&Map, class CoinManager&Coins); //Constructor de la clase Player
@@ -15,7 +15,7 @@ public:
 	void updatePosition(class Map&Map,Input::Key movementKey);
 
 private:
-	Map map;
+	Map Mapa;
 	CoinManager &coin;
 	int positionX;
 	int positionY;

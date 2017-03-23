@@ -1,6 +1,6 @@
 #include "Header.hh"
-/*
-Player::Player( Map&Mapa, CoinManager&CoinManager)
+
+/*Player::Player( Map&Mapa, CoinManager&CoinManager)::Mapa{ Mapa }
 {
 	char empty = '.';
 	playerPoints = 0;

@@ -30,7 +30,7 @@ int difficultyChoice()
 
 int main()
 {
-	//Input::Key::MyKey
+	Input::Key MyKey;
 	srand(time(nullptr));
 	int difficulty;
 	difficulty = difficultyChoice();
@@ -39,7 +39,7 @@ int main()
 	A.drawMap(); //Muestra el mapa A en pantalla. 
 
 	//Player player(A,MyKey);//Objeto sobrecargado de la clase player
-	//player.addPoints(A,);
+	//player.addPoints(A);
 
 	CoinManager Coins(A);//Objeto3 sobregado de la clase Coin
 	Coins.inicializeCoins(difficulty);
