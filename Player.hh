@@ -4,21 +4,27 @@
 class Player
 {
 public:
-	Player(class Map&Map); //Constructor de la clase Player
 
-	~Player();//Destructor de la clase Player
+	Player(Map &map, CoinManager &coins);
 
-	void addPoints( Input::Key pointKey); //Método que añade 
+	~Player();
+
+	void update( Input::Key keyPressed);
 
 	int getPoints(void); 
 
-	void updatePosition(Input::Key movementKey);
-
 private:
-	Map Mapa;
+
+	Map &myMap;
+
+	CoinManager &myCoins;
 
 	int positionX;
+
 	int positionY;
+
 	int playerPoints;
+
 	char playerChar = '@';
-};*/
+};
+*/

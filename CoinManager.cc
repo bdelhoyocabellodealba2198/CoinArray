@@ -55,5 +55,6 @@ void CoinManager::refillCoins() {
 			}
 		}
 	}
-}*/
+}
+*/
 

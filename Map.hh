@@ -1,4 +1,4 @@
-#pragma once //Preguntar a Tona para qué es #pragma once.
+#pragma once
 #include "Header.hh"
 
 class Map
@@ -15,15 +15,20 @@ public:
 
 	void drawMap();
 
+	int getRows();
+
+	int getColumns();
+
 	int getMapSize();
 
-	int getMatrixSize();
 
 private:
 
-	int map_cells_amount;
+	int map_matrix_rows;
 
-	int matrix_size;
+	int map_matrix_columns;
+
+	int map_cells_amount;
 
 	char **map_matrix;
 };

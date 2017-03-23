@@ -2,9 +2,28 @@
 
 Map::Map(int difficulty) 
 {
-	matrix_size = rand() % (5 * difficulty * 2) + (5 * difficulty);
-	map_matrix = new char*[matrix_size];
-	map_cells_amount = matrix_size*matrix_size;
+	map_matrix_rows = rand() % (5 * difficulty * 2) + (5 * difficulty);
+	map_matrix_columns = rand() % (5 * difficulty * 2) + (5 * difficulty);
+	map_matrix = new char*[map_matrix_rows];
+	map_cells_amount = map_matrix_rows*map_matrix_columns;
+
+	for (int i = 0; i < map_matrix_rows; i++)
+	{
+		map_matrix[i] = new char[map_matrix_columns];
+	}
+
+	for (int i = 0, j = 0; j < map_matrix_rows; i++)
+	{
+		if (i < map_matrix_columns)
+		{
+			map_matrix[j][i] = '.';
+		}
+		else
+		{
+			j++;
+			i = -1;
+		}
+	}
 }
 
 Map::~Map()
@@ -14,22 +33,21 @@ Map::~Map()
 
 void Map::drawMap()
 {
-	for (int i = 0, j = 0; j < matrix_size; i++)
+	for (int i = 0, j = 0; j < map_matrix_rows; i++)
 	{
-			if (i < matrix_size)
-			{
-				std::cout << " . ";
-			}
-			else
-			{
-				std::cout << std::endl;
-				i = -1;
-				j++;
-			}
+		if (i < map_matrix_columns)
+		{
+			std::cout << " " << map_matrix[j][i];
+		}
+		else
+		{
+			j++;
+			i = -1;
+			std::cout << std::endl;
+		}
 	}
-
-	std::cout << std::endl;
-	std::cout << matrix_size;
+	std::cout << map_matrix_columns << std::endl;
+	std::cout << map_matrix_rows << std::endl;
 }
 
 void Map::newCellContent(int rowPosition, int columnPosition, char newContent)
@@ -37,9 +55,7 @@ void Map::newCellContent(int rowPosition, int columnPosition, char newContent)
 	map_matrix[rowPosition][columnPosition] = newContent;
 }
 
-char Map::getContent(int rowPosition, int columnPosition)//Devuelve el valor interno de la celda a la que 
-														//queremos acceder. 
-	
+char Map::getContent(int rowPosition, int columnPosition)
 {
 	char content;
     content= map_matrix[rowPosition][columnPosition];
@@ -47,12 +63,17 @@ char Map::getContent(int rowPosition, int columnPosition)//Devuelve el valor int
 	return content;
 }
 
+int Map::getRows() 
+{
+	return map_matrix_rows;
+}
+
+int Map::getColumns()
+{
+	return map_matrix_columns;
+}
+
 int Map::getMapSize() 
 {
 	return map_cells_amount;
-}
-
-int Map::getMatrixSize() 
-{
-	return matrix_size;
 }

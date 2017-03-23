@@ -1,5 +1,4 @@
 #include "Header.hh"
-#include "conio.h"
 
 int difficultyChoice()
 {
@@ -27,10 +26,9 @@ int difficultyChoice()
 	return playerChoice;
 }
 
-
 int main()
 {
-	Input::Key MyKey;
+	//Input::Key MyKey;
 	srand(time(nullptr));
 	int difficulty;
 	difficulty = difficultyChoice();
