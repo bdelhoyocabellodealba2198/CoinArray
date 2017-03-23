@@ -1,47 +1,48 @@
 #include "Header.hh"
-
-Player::Player(class Map&Map)
+/*
+Player::Player( Map&Mapa, CoinManager&CoinManager)
 {
+	char empty = '.';
 	playerPoints = 0;
 	do {
-		positionX = rand() % Map.getMatrixSize();
-		positionY = rand() % Map.getMatrixSize();
+		positionX = rand() % Mapa.getMatrixSize();
+		positionY = rand() % Mapa.getMatrixSize();
 		
-		if (Map.getContent(positionX, positionY) == '.')
+		if (Mapa.getContent(positionX, positionY) == empty)
 		{
-			Map.newCellContent(positionX, positionY, playerChar);
+			Mapa.newCellContent(positionX, positionY, playerChar);
 		}
-	} while (Map.getContent(positionX, positionY) != '.');
+	} while (Mapa.getContent(positionX, positionY) != empty);
 }
 
 Player::~Player()
 {}
 
-void Player::addPoints(class Map&Map, Input::Key pointKey)
+void Player::addPoints(Map&Mapa, Input::Key pointKey)
 {
 	switch(pointKey)
 	{
-	case Input::Key::D: if (Map.getContent(positionX + 1,positionY) == '$') playerPoints++;
+	case Input::Key::D: if (Mapa.getContent(positionX + 1,positionY) == '$') playerPoints++;
 		break;
-	case Input::Key::A: if (Map.getContent(positionX - 1,positionY) == '$') playerPoints++;
+	case Input::Key::A: if (Mapa.getContent(positionX - 1,positionY) == '$') playerPoints++;
 		break;
-	case Input::Key::W: if (Map.getContent(positionX,positionY - 1) == '$') playerPoints++;
+	case Input::Key::W: if (Mapa.getContent(positionX,positionY - 1) == '$') playerPoints++;
 		break;
-	case Input::Key::S: if (Map.getContent(positionX,positionY + 1) == '$') playerPoints++;
+	case Input::Key::S: if (Mapa.getContent(positionX,positionY + 1) == '$') playerPoints++;
 		break;
 	}
 }
 
-void Player::updatePosition(class Map&Map, Input::Key movementKey) 
+void Player::updatePosition(Map&Mapa,Input::Key movementKey)
 {
 	char emptyCell = ' . ';
-	Map.newCellContent(positionX, positionY, emptyCell);
+	Mapa.newCellContent(positionX, positionY, emptyCell);
 	switch (movementKey)
 	{
-	case Input::Key::D: Map.newCellContent(positionX + 1, positionY, playerChar);
-	case Input::Key::A: Map.newCellContent(positionX - 1, positionY, playerChar);
-	case Input::Key::W: Map.newCellContent(positionX, positionY - 1, playerChar);
-	case Input::Key::S: Map.newCellContent(positionX, positionY + 1, playerChar);
+	case Input::Key::D: Mapa.newCellContent(positionX + 1, positionY, playerChar);
+	case Input::Key::A: Mapa.newCellContent(positionX - 1, positionY, playerChar);
+	case Input::Key::W: Mapa.newCellContent(positionX, positionY - 1, playerChar);
+	case Input::Key::S: Mapa.newCellContent(positionX, positionY + 1, playerChar);
 //	case Input::Key::ENTER: Map.newCellContent(rand() % sqrt(Map.getMapSize), rand() % sqrt(Map.getMapSize), playerChar);
 	//	case Input::Key::ESC: //FIN DEL GAME LOOP.
 	default:
@@ -52,4 +53,4 @@ void Player::updatePosition(class Map&Map, Input::Key movementKey)
 int Player::getPoints()
 {
 	return playerPoints;
-}
+}*/

@@ -1,4 +1,5 @@
 #include "Header.hh"
+#include "conio.h"
 
 int difficultyChoice()
 {
@@ -26,14 +27,22 @@ int difficultyChoice()
 	return playerChoice;
 }
 
+
 int main()
 {
+	//Input::Key::MyKey
 	srand(time(nullptr));
 	int difficulty;
 	difficulty = difficultyChoice();
-	
-	Map A(difficulty);
-	A.drawMap();
+
+	Map A(difficulty);//Objeto sobrecagado de la clase Map
+	A.drawMap(); //Muestra el mapa A en pantalla. 
+
+	//Player player(A,MyKey);//Objeto sobrecargado de la clase player
+	//player.addPoints(A,);
+
+	CoinManager Coins(A);//Objeto3 sobregado de la clase Coin
+	Coins.inicializeCoins(difficulty);
 
 	return 0;
 }
