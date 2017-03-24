@@ -31,7 +31,7 @@ void CoinManager::refillCoins()
 		}
 	}
 }
-//holi
+
 void CoinManager::removeCoin() 
 {
 	total_Coins--;
