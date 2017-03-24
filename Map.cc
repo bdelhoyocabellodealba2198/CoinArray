@@ -14,7 +14,7 @@ Map::Map(int difficulty)
 			map_matrix[i] = new char[map_matrix_columns];
 		}
 	
-		
+		inicialize();
 }
 
 Map::~Map()

@@ -15,7 +15,6 @@ public:
 	
 private:
 	Map &myMap;
-	int visible_Coins;
 	int total_Coins;
 	int x;
 	int y;

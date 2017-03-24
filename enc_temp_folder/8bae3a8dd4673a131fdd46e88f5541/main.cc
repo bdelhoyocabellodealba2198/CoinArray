@@ -14,7 +14,6 @@ int main()
 		std::cout << "/////////////////////////////////////////////////////////////" << std::endl;
 		std::cout << " " << std::endl;
 		std::cout << "                         COIN RACE                           " << std::endl;
-		std::cout << " " << std::endl;
 		std::cout << "/////////////////////////////////////////////////////////////" << std::endl;
 		std::cout << " " << std::endl;
 
@@ -76,9 +75,8 @@ int main()
 			std::cout << "Player points: " << player.getPoints();
 		}
 	} while (player.getPoints()<totalPoints&& keyPressed!= Input::Key::ESC);
-	
 	t_fin = clock();
-	secs = (double)(t_fin - t_ini) / CLOCKS_PER_SEC; 
+	secs = (double)(t_fin - t_ini) / CLOCKS_PER_SEC;
 	std::cout << std::endl;
 	std::cout << "time: " << secs <<" sec."<<std::endl;
 	system("pause");

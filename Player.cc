@@ -24,28 +24,68 @@ void Player::update(Input::Key keyPressed)
 {
 	myMap.newCellContent(positionX, positionY, emptyCell);
 
-	switch(keyPressed)
+	switch (keyPressed)
 	{
-		
-	case Input::Key::D: if (myMap.getContent(positionX + 1,positionY) == '$') playerPoints++;
-		myCoins.removeCoin();
-		myMap.newCellContent(positionX + 1, positionY, playerChar);
+
+	case Input::Key::D:
+
+		if (positionY < myMap.getColumns()-1)
+		{
+			positionY++;
+
+			if (myMap.getContent(positionX, positionY) == '$')
+			{
+				playerPoints++;
+				myCoins.removeCoin();
+
+			}
+		}
 		break;
-	case Input::Key::A: if (myMap.getContent(positionX - 1,positionY) == '$') playerPoints++;
-		myCoins.removeCoin();
-		myMap.newCellContent(positionX - 1, positionY, playerChar);
+
+	case Input::Key::A:
+
+		if (positionY > 0)
+		{
+			positionY--;
+
+			if (myMap.getContent(positionX, positionY) == '$')
+			{
+				playerPoints++;
+				myCoins.removeCoin();
+			}
+		}
 		break;
-	case Input::Key::W: if (myMap.getContent(positionX,positionY - 1) == '$') playerPoints++;
-		myCoins.removeCoin();
-		myMap.newCellContent(positionX, positionY - 1, playerChar);
+
+	case Input::Key::W:
+
+		if (positionX > 0)
+		{
+			positionX--;
+
+			if (myMap.getContent(positionX, positionY) == '$')
+			{
+				playerPoints++;
+				myCoins.removeCoin();
+			}
+		}
 		break;
-	case Input::Key::S: if (myMap.getContent(positionX,positionY + 1) == '$') playerPoints++;
-		myCoins.removeCoin();
-		myMap.newCellContent(positionX, positionY + 1, playerChar);
-		break;
-	default:
+
+	case Input::Key::S:
+
+		if (positionX < myMap.getRows()-1)
+		{
+			positionX++;
+
+			if (myMap.getContent(positionX, positionY) == '$')
+			{
+				playerPoints++;
+				myCoins.removeCoin();
+			}
+		}
 		break;
 	}
+	myMap.newCellContent(positionX, positionY, playerChar);
+
 }
 
 int Player::getPoints()
