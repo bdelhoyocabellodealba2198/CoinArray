@@ -28,19 +28,24 @@ int difficultyChoice()
 
 int main()
 {
-	//Input::Key MyKey;
-	srand(time(nullptr));
+	Input::Key keyPressed;
+
+	keyPressed = Input::getKey();
+
+	srand((unsigned int)time((time_t *)NULL));
+
 	int difficulty;
+
 	difficulty = difficultyChoice();
 
-	Map A(difficulty);//Objeto sobrecagado de la clase Map
-	A.drawMap(); //Muestra el mapa A en pantalla. 
+	Map A(difficulty);
+	A.drawMap();
 
-	//Player player(A,MyKey);//Objeto sobrecargado de la clase player
-	//player.addPoints(A);
+	CoinManager Coins(A);
+	Coins.refillCoins();
 
-	//CoinManager Coins(A);//Objeto3 sobregado de la clase Coin
-	//Coins.inicializeCoins(difficulty);
+	Player player(A, Coins);
+	player.update(keyPressed);
 
 	return 0;
 }

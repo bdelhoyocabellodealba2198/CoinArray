@@ -1,6 +1,8 @@
 #pragma once //Preguntar a Tona para qué es #pragma once.
 #include "Header.hh"
-/*
+class Map;
+class CoinManager;
+
 class Player
 {
 public:
@@ -9,14 +11,14 @@ public:
 
 	~Player();
 
-	void update( Input::Key keyPressed);
+	void update(Input::Key keyPressed);
 
-	int getPoints(void); 
+	int getPoints(); 
 
 private:
 
 	Map &myMap;
-
+	
 	CoinManager &myCoins;
 
 	int positionX;
@@ -26,5 +28,6 @@ private:
 	int playerPoints;
 
 	char playerChar = '@';
+
+	char emptyCell = '.';
 };
-*/

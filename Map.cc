@@ -6,7 +6,7 @@ Map::Map(int difficulty)
 	map_matrix_columns = rand() % (5 * difficulty * 2) + (5 * difficulty);
 	map_matrix = new char*[map_matrix_rows];
 	map_cells_amount = map_matrix_rows*map_matrix_columns;
-
+	/*
 	for (int i = 0; i < map_matrix_rows; i++)
 	{
 		map_matrix[i] = new char[map_matrix_columns];
@@ -24,11 +24,15 @@ Map::Map(int difficulty)
 			i = -1;
 		}
 	}
-}
+	*/
 
-Map::~Map()
-{
-	delete[]map_matrix;
+	for (int i = 0; i < map_matrix_rows; i++) 
+	{
+		for (int j = 0; j < map_matrix_columns; j++) 
+		{
+
+		}
+	}
 }
 
 void Map::drawMap()
@@ -58,7 +62,8 @@ void Map::newCellContent(int rowPosition, int columnPosition, char newContent)
 char Map::getContent(int rowPosition, int columnPosition)
 {
 	char content;
-    content= map_matrix[rowPosition][columnPosition];
+
+    content = map_matrix[rowPosition][columnPosition];
 
 	return content;
 }
@@ -76,4 +81,13 @@ int Map::getColumns()
 int Map::getMapSize() 
 {
 	return map_cells_amount;
+}
+
+Map::~Map()
+{
+	for (int i = 0; i < map_matrix_rows; i++)
+	{
+		delete[]map_matrix[i];
+	}
+	delete[]map_matrix;
 }

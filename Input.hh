@@ -1,6 +1,6 @@
 #pragma once
 #include <conio.h>
-/*
+
 namespace Input
 {
 	enum class Key															//Represents each key that the player can use.
@@ -31,4 +31,3 @@ namespace Input
 		return Key::NONE;
 	}
 };
-*/

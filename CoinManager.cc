@@ -1,60 +1,37 @@
 #include "Header.hh" 
-/*
-CoinManager::CoinManager(Map &M):Mapa{M}//Constructor del mapa
+
+CoinManager::CoinManager(Map &map) : myMap{map}
 {
-		
-	totalCoins = 0;
-	visibleCoins = 0;
-	
+	total_Coins = 0;
+	visible_Coins = 0;
 }
 
 CoinManager::~CoinManager()
 {
 
 }
-void CoinManager::inicializeCoins( int difficulty) { //Inicializamos el valor de las monedas en función a la dificultad.
-	totalCoins== rand() % (30 * difficulty * 2) + (30 * difficulty); //Me coge valores random
-																	 //para el valor del total de 
-																	 //monedas que el jugador va a 
-																	 //tener que consegur.
+void CoinManager::refillCoins() 
+{
+	total_Coins = rand() % (30 * myMap.getMapSize() * 2) + (30 * myMap.getMapSize());
 
-	visibleCoins = rand() % ((((3 * 100) / totalCoins) + ((13 * 100) / totalCoins))); //De ese totalCoins
-																					  //solo me cojera de un 3%
-	char empty{ '.' };																 //a un 13%,que serán monedas visibles.		
-	char coin{ '$' };
+	int total_Coins1 = total_Coins * 0.03;
+	int total_Coins2 = total_Coins * 0.13;
+
+	visible_Coins = rand() % total_Coins1 + total_Coins2;
 	
-	for (int i = 0; i < visibleCoins && Mapa.getContent(x, y) != empty && Mapa.getContent(x, y) != coin; i++) {
+	for (int i = 0; i < visible_Coins && myMap.getContent(x, y) != emptyCell && myMap.getContent(x, y) != coin; i++)
+	{
+		x = rand() % myMap.getRows();
+		y = rand() % myMap.getColumns();
 
-		x = rand() % Mapa.getMatrixSize();
-		y = rand() % Mapa.getMatrixSize();
-
-		if (Mapa.getContent(x,y)!=empty && Mapa.getContent(x,y)!=coin) {
-			Mapa.newCellContent(x,y,coin);
+		if (myMap.getContent(x, y) != emptyCell && myMap.getContent(x, y) != coin) 
+		{
+			myMap.newCellContent(x, y, coin);
 		}
 	}
 }
 
-void CoinManager::removeCoin() { //Cada vez que el jugador se encuentra esta moneda, el total de monedas disminuye 1
-
-	totalCoins--;
-
+void CoinManager::removeCoin() 
+{
+	total_Coins--;
 }
-
-void CoinManager::refillCoins() {
-	if (visibleCoins==0) {
-		char empty{ '.' };																 //a un 13%,que serán monedas visibles.		
-		char coin{ '$' };
-
-		for (int i = 0; i < visibleCoins && Mapa.getContent(x, y) != empty && Mapa.getContent(x, y) != coin; i++) {
-
-			x = rand() % Mapa.getMatrixSize();
-			y = rand() % Mapa.getMatrixSize();
-
-			if (Mapa.getContent(x, y) != empty && Mapa.getContent(x, y) != coin) {
-				Mapa.newCellContent(x, y, coin);
-			}
-		}
-	}
-}
-*/
-
