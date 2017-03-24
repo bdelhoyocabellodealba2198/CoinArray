@@ -4,54 +4,46 @@ Map::Map(int difficulty)
 {
 	map_matrix_rows = rand() % (5 * difficulty * 2) + (5 * difficulty);
 	map_matrix_columns = rand() % (5 * difficulty * 2) + (5 * difficulty);
-	map_matrix = new char*[map_matrix_rows];
+
 	map_cells_amount = map_matrix_rows*map_matrix_columns;
-	/*
+
+	map_matrix = new char*[map_matrix_rows];
+
+		for (int i = 0; i < map_matrix_rows; i++) 
+		{
+			map_matrix[i] = new char[map_matrix_columns];
+		}
+	
+		
+}
+
+Map::~Map()
+{
 	for (int i = 0; i < map_matrix_rows; i++)
 	{
-		map_matrix[i] = new char[map_matrix_columns];
+		delete[]map_matrix[i];
 	}
+	delete[]map_matrix;
+}
 
-	for (int i = 0, j = 0; j < map_matrix_rows; i++)
-	{
-		if (i < map_matrix_columns)
-		{
-			map_matrix[j][i] = '.';
-		}
-		else
-		{
-			j++;
-			i = -1;
-		}
-	}
-	*/
+void Map::inicialize()
+{
 
-	for (int i = 0; i < map_matrix_rows; i++) 
-	{
-		for (int j = 0; j < map_matrix_columns; j++) 
-		{
+	for (int i = 0; i < map_matrix_rows; i++) {
+		for (int j = 0; j < map_matrix_columns; j++) {
+			map_matrix[i][j] = empty_cell;
 
 		}
 	}
 }
-
 void Map::drawMap()
 {
-	for (int i = 0, j = 0; j < map_matrix_rows; i++)
-	{
-		if (i < map_matrix_columns)
-		{
-			std::cout << " " << map_matrix[j][i];
+	for (int i = 0; i < map_matrix_rows; i++) {
+		for (int j = 0; j < map_matrix_columns; j++) {
+			std::cout<<map_matrix[i][j];
 		}
-		else
-		{
-			j++;
-			i = -1;
-			std::cout << std::endl;
-		}
+		std::cout << std::endl;
 	}
-	std::cout << map_matrix_columns << std::endl;
-	std::cout << map_matrix_rows << std::endl;
 }
 
 void Map::newCellContent(int rowPosition, int columnPosition, char newContent)
@@ -83,11 +75,3 @@ int Map::getMapSize()
 	return map_cells_amount;
 }
 
-Map::~Map()
-{
-	for (int i = 0; i < map_matrix_rows; i++)
-	{
-		delete[]map_matrix[i];
-	}
-	delete[]map_matrix;
-}

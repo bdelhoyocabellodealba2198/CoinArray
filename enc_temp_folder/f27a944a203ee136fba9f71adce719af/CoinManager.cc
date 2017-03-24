@@ -9,6 +9,7 @@ CoinManager::CoinManager(Map &map) : myMap{map}
 
 CoinManager::~CoinManager()
 {
+
 }
 void CoinManager::refillCoins() 
 {

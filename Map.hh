@@ -14,6 +14,7 @@ public:
 	char getContent(int rowPosition, int columnPosition);
 
 	void drawMap();
+	void inicialize();
 
 	int getRows();
 
@@ -29,6 +30,7 @@ private:
 	int map_matrix_columns;
 
 	int map_cells_amount;
+	char empty_cell = '.';
 
 	char **map_matrix;
 };

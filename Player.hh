@@ -30,4 +30,6 @@ private:
 	char playerChar = '@';
 
 	char emptyCell = '.';
+
+	char coinChar = '$';
 };

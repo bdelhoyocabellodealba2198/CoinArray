@@ -21,4 +21,5 @@ private:
 	int y;
 	char coin{ '$' };
 	char emptyCell{ '.' };
+	char playerChar{'@'};
 };

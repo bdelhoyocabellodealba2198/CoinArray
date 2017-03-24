@@ -33,10 +33,10 @@ int main()
 	totalPoints = 80;
 	Input::Key keyPressed;
 
-	//bool InputOk = false;
-	//if (getKey) {
-	//	bool InputOk = true;
-	//}
+	bool InputOk = false;
+	if (Input::getKey) {
+		bool InputOk = true;
+	}
 	keyPressed = Input::getKey();
 	
 	//srand((unsigned int)time((time_t *)NULL));

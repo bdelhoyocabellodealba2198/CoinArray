@@ -26,7 +26,6 @@ void Player::update(Input::Key keyPressed)
 
 	switch(keyPressed)
 	{
-		
 	case Input::Key::D: if (myMap.getContent(positionX + 1,positionY) == '$') playerPoints++;
 		myCoins.removeCoin();
 		myMap.newCellContent(positionX + 1, positionY, playerChar);
