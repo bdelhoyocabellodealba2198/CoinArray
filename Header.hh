@@ -1,3 +1,4 @@
+//BIBLIOTECA DE BIBLIOTECAS PARA NUESTRA ORGANIZACIÓN Y COMODIDAD
 #include "CoinManager.hh"
 #include "Map.hh"
 #include "Player.hh"

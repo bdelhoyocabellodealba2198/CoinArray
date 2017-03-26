@@ -1,14 +1,17 @@
+//CÓDIGO DADO EN LA PRÁCTICA PARA EL CONTROL DE MOVIMIENTO DEL PLAYER
 #pragma once
 #include <conio.h>
 
 namespace Input
 {
-	enum class Key															//Represents each key that the player can use.
+	//REPRESENTA CADA TECLA QUE EL JUGADOR PUEDE USAR
+	enum class Key
 	{
 		NONE, W, A, S, D, ENTER, ESC
 	};
 
-	static Key getKey()														//Returns the key that has been pressed.
+	//DEVUELVE LA TECLA QUE HA SIDO PRESIONADA
+	static Key getKey()
 	{
 		if (_kbhit())
 		{

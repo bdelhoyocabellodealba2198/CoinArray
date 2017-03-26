@@ -17,16 +17,16 @@ Player::Player(Map &map, CoinManager &coins) : myMap{ map }, myCoins{ coins }
 	} while (playerDone == false);
 }
 
-Player::~Player() {
-
+Player::~Player() 
+{
 }
+
 void Player::update(Input::Key keyPressed)
 {
 	myMap.newCellContent(positionX, positionY, emptyCell);
 
 	switch (keyPressed)
 	{
-
 	case Input::Key::D:
 
 		if (positionY < myMap.getColumns()-1)
@@ -37,7 +37,6 @@ void Player::update(Input::Key keyPressed)
 			{
 				playerPoints++;
 				myCoins.removeCoin();
-
 			}
 		}
 		break;
@@ -71,7 +70,7 @@ void Player::update(Input::Key keyPressed)
 		break;
 
 	case Input::Key::S:
-
+		
 		if (positionX < myMap.getRows()-1)
 		{
 			positionX++;
@@ -85,7 +84,6 @@ void Player::update(Input::Key keyPressed)
 		break;
 	}
 	myMap.newCellContent(positionX, positionY, playerChar);
-
 }
 
 int Player::getPoints()
