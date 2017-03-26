@@ -10,21 +10,24 @@ CoinManager::CoinManager(Map &map) : myMap{map}
 CoinManager::~CoinManager()
 {
 }
-void CoinManager::refillCoins() 
+
+void CoinManager::refillCoins()
 {
-	total_Coins = (rand() % myMap.getMapSize()*0.13 - myMap.getMapSize()*0.03) + myMap.getMapSize()*0.03;
 	
-	for (int i = 0; i< total_Coins; i++)
-	{
-		do {
-
-			x = rand() % myMap.getRows();
-			y = rand() % myMap.getColumns();
-
-		} while (myMap.getContent(x, y) != emptyCell);
+	total_Coins = (rand() % static_cast<int>(ceil(static_cast<double>(myMap.getMapSize()*0.13f - static_cast<double>(myMap.getMapSize()*0.03f)))) + static_cast<int>(ceil(static_cast<double>(myMap.getMapSize()*0.03f))));
 	
-			myMap.newCellContent(x, y, coin);
-	}
+		for (int i = 0; i< total_Coins; i++)
+		{
+			do {
+
+				x = rand() % myMap.getRows();
+				y = rand() % myMap.getColumns();
+
+			} while (myMap.getContent(x, y) != emptyCell);
+
+			myMap.newCellContent(x,y, coin);
+		}
+	
 }
 
 void CoinManager::removeCoin() 

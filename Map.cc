@@ -3,6 +3,8 @@
 Map::Map(int difficulty) 
 {
 	map_matrix_rows = rand() % (5 * difficulty * 2) + (5 * difficulty);
+	//map_matrix_rows =( rand() % (5 * difficulty * 2) - (5 * difficulty)) + (5 * difficulty);
+	//map_matrix_columns = (rand() % (5 * difficulty * 2) - (5 * difficulty)) + (5 * difficulty);
 	map_matrix_columns = rand() % (5 * difficulty * 2) + (5 * difficulty);
 
 	map_cells_amount = map_matrix_rows*map_matrix_columns;
@@ -37,10 +39,19 @@ void Map::inicialize()
 	}
 }
 void Map::drawMap()
-{
+{ 
+	std::cout << "/////////////////////////////////////////////////////////////" << std::endl;
+	std::cout << " " << std::endl;
+	std::cout << "                           COIN RACE                          " << std::endl;
+	std::cout << " " << std::endl;
+	std::cout << "/////////////////////////////////////////////////////////////" << std::endl;
+
+	std::cout << " " << std::endl;
+	std::cout << " " << std::endl;
+
 	for (int i = 0; i < map_matrix_rows; i++) {
 		for (int j = 0; j < map_matrix_columns; j++) {
-			std::cout<<map_matrix[i][j];
+			std::cout<< map_matrix[i][j];
 		}
 		std::cout << std::endl;
 	}
